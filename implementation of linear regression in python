@@ -1,0 +1,21 @@
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+
+np.random.seed(0)
+X = np.random.rand(100, 1)
+y = 3 + 2 * X + np.random.randn(100, 1) / 1.5
+
+model = LinearRegression()
+model.fit(X, y)
+
+
+print("Coefficients: ", model.coef_)
+print("Intercept: ", model.intercept_)
+
+y_pred = model.predict(X)
+plt.scatter(X, y, label="Data")
+plt.plot(X, y_pred, label="Linear Regression", color="red")
+plt.legend()
+plt.show()
